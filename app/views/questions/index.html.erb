@@ -2,6 +2,8 @@
 
 <ul>
   <% @questions.each do |q| %>
-    <li><%= q.title %> by <%= q.user.name %></li>
+    <li>
+      <%= link_to q.title, question_path(q) %> by <%= q.user.name %>
+    </li>
   <% end %>
 </ul>
