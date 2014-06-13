@@ -2,6 +2,6 @@
 
 <ul>
   <% @questions.each do |q| %>
-    <li><%= q.title %></li>
+    <li><%= q.title %> by <%= q.user.name %></li>
   <% end %>
 </ul>
