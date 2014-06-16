@@ -1,13 +1,13 @@
 <h3>Edit a Question</h3>
 
-<%= form_for :question, url: question_path(@question),
+<%= form_for @question, url: question_path(@question),
   method: :patch do |f| %>
 
   <% if @question.errors.any? %>
     <p>There were errors with your submission:</p>
     <ul>
       <% @question.errors.full_messages.each do |msg| %>
-        <%= msg %>
+        <li><%= msg %></li>
       <% end %>
     </ul>
   <% end %>
