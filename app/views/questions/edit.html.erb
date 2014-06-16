@@ -1,28 +1,12 @@
-<h2><%= @question.title %></h2>
+<h3>Edit a Question</h3>
 
-<p>
-  <%= @question.body %>
-</p>
+<%= form_for :question, url: question_path(@question),
+  method: :patch do |f| %>
 
-<h3>Answers</h3>
-
-<ol>
-  <% @question.answers.each do |a| %>
-    <li><%= a.title %><br>
-    <%= a.body %></li>
-    <br>
-    <br>
-  <% end %>
-</ol>
-
-<h3>Submit an answer</h3>
-
-<%= form_for [@question, @answer] do |f| %>
-
-  <% if @answer.errors.any? %>
+  <% if @question.errors.any? %>
     <p>There were errors with your submission:</p>
     <ul>
-      <% @answer.errors.full_messages.each do |msg| %>
+      <% @question.errors.full_messages.each do |msg| %>
         <%= msg %>
       <% end %>
     </ul>
@@ -46,3 +30,5 @@
   <%= f.submit %>
 
 <% end %>
+
+<%= link_to 'Back to Questions', questions_path %>
