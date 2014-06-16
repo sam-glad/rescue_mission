@@ -1,9 +1,11 @@
 <h2>Questions</h2>
 
+<%= link_to 'New question', new_question_path %>
+
 <ul>
   <% @questions.each do |q| %>
     <li>
-      <%= link_to q.title, question_path(q) %> by <%= q.user.name %>
+      <%= link_to q.title, question_path(q) %> by <%= q.user.name %> <%= time_ago_in_words q.created_at %> ago
     </li>
   <% end %>
 </ul>
