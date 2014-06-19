@@ -16,11 +16,11 @@
 </ol>
 
 <br><p>
-  <%= link_to 'Edit this question', edit_question_path %>
+  <%= link_to 'Edit this question', edit_question_path(@question) %>
 </p><br>
 
 <p>
-  <%= link_to 'Remove this question', question_path, method: :delete, data: { confirm: 'Are you sure you want to delete this question?'} %>
+  <%= link_to 'Remove this question', question_path(@question), method: :delete, data: { confirm: 'Are you sure you want to delete this question?'} %>
 </p>
 
 <h3>Submit an answer</h3>
@@ -31,7 +31,7 @@
     <p>There were errors with your submission:</p>
     <ul>
       <% @answer.errors.full_messages.each do |msg| %>
-        <%= msg %>
+        <li><%= msg %></li>
       <% end %>
     </ul>
   <% end %>

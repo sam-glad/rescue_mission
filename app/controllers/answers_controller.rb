@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
-  def index
-    @answers = Answer.all.order('created_at ASC')
-  end
+  # def index
+  #   @answers = Answer.all.order('created_at ASC')
+  # end
 
   def show
     @answer = Answer.find(params[:id])
@@ -13,9 +13,11 @@ class AnswersController < ApplicationController
     @answer.question = @question
 
     if @answer.save
+      flash[:notice] = "Answer saved!"
       redirect_to question_path(@question)
     else
-      render :new
+      flash[:notice] = "Oops! Check below for errors with your submission!"
+      render 'questions/show'
     end
   end
 
